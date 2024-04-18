@@ -1,7 +1,9 @@
-const sortByDescendingFriendCount = users => {
-  return users.sort((a, b) => b.friends.length - a.friends.length);
+Array.prototype.toSorted = function (compareFunction) {
+  return this.slice().sort(compareFunction);
 };
-
+const sortByDescendingFriendCount = users => {
+  return users.toSorted((a, b) => b.friends.length - a.friends.length);
+};
 console.log(
   sortByDescendingFriendCount([
     {
